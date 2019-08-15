@@ -1,0 +1,44 @@
+.header-area {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 40px 0 rgba(156, 156, 156, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  height: 110px;
+
+  .navbar {
+    padding: 0;
+
+    .navbar-brand {
+      & > img{
+        width: 80px;
+      }
+    }
+  }
+}
+
+.nav-user-info{
+  display: flex;
+  align-items: center;
+
+  .nav-username{
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+
+    img{
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    p{
+      margin-bottom: 0;
+    }
+  }
+}

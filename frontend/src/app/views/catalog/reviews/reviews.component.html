@@ -1,0 +1,72 @@
+<div class="create-review-container" *ngIf="authService.getToken()">
+  <h5>Submit your review</h5>
+  <form [formGroup]="createReviewForm">
+    <div class="row">
+      <div class="col-lg-12">
+        <div>
+          <ngb-rating class="rating-bar"
+                      formControlName="rate"
+                      required
+                      [max]="5">
+            <ng-template let-fill="fill" let-index="index">
+              <span class="star" [class.filled]="fill === 100">&#9733;</span>
+            </ng-template>
+          </ngb-rating>
+          <div *ngIf="submitted && createReviewForm.controls['rate'].errors?.required"  class="help-block with-errors">
+            <div>Rating is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="single-form form-group">
+          <textarea [placeholder]="'Comment'"
+                    formControlName="text"
+                    required></textarea>
+          <div *ngIf="submitted && createReviewForm.controls['text'].errors?.required" class="help-block with-errors">
+            <div>Comment is required</div>
+          </div>
+        </div>
+      </div>
+      <p class="form-message"></p>
+      <div class="col-lg-12">
+        <div class="single-form form-group">
+          <button *ngIf="!submitProcess" class="main-btn"
+                  (click)="createReview()">
+            Create review
+          </button>
+          <button *ngIf="submitProcess" class="main-btn" disabled>
+            Create review
+            <span class="c-preloader"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="create-review-container is-logout" *ngIf="!authService.getToken()">
+  <p>To leave a review - please login or register</p>
+  <ul class="link-items-list" *ngIf="!authService.getToken()">
+    <li class="link-item">
+      <a data-scroll-nav="0" (click)="routingToLink('/login')">Login</a>
+      <span> / </span>
+      <a data-scroll-nav="0" (click)="routingToLink('/sign-up')">Sign Up</a>
+    </li>
+  </ul>
+</div>
+
+<h5>Reviews</h5>
+<div class="review-list-content">
+  <app-preloader class="review-load" *ngIf="preloader"></app-preloader>
+  <div class="review-item" *ngFor="let review of reviews">
+    <div class="about-author">
+      <span>{{ review.created_at | date:'MMM d, y'}} by <i>{{ review.created_by.username }}</i></span>
+      <ngb-rating [rate]="review.rate" [readonly]="true" [max]="5" class="rating-bar">
+        <ng-template let-fill="fill" let-index="index">
+          <span class="star" [class.filled]="fill === 100">&#9733;</span>
+        </ng-template>
+      </ngb-rating>
+    </div>
+    <p class="review-text">Comment: {{ (review.text) ? review.text : 'Not comment' }}</p>
+  </div>
+</div>

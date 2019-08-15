@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="product-items-active">
+  <div class="col-md-4 col-lg-3" *ngFor="let product of catalog"
+       (click)="openProduct(content, product)">
+    <div class="single-product-items">
+      <div class="product-item-image">
+        <img [src]="imgUrl + 'static/' + product.img" alt="Product">
+      </div>
+      <div class="product-item-content text-center mt-30">
+        <h5 class="product-title">{{ product.title }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-preloader *ngIf="preloader"></app-preloader>
+
+<ng-template #content let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <app-product [modal]="modal" [product]="selectProduct"></app-product>
+  </div>
+</ng-template>

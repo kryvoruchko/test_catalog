@@ -1,0 +1,4 @@
+﻿{
+    "connectionLink": "mongodb://localhost:27017/test_job",
+    "secret": "7BhPLDr5TuE6eS9HuPw5a2AN9GhN89kO"
+}

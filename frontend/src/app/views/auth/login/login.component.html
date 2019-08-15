@@ -1,0 +1,60 @@
+<div class="login-container">
+  <div class="contact-box">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="contact-info pt-25">
+          <h4 class="info-title">Login</h4>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="contact-form">
+          <form [formGroup]="loginForm">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="single-form form-group">
+                  <input type="text"
+                         placeholder="Username"
+                         formControlName="username"
+                         required>
+                  <div *ngIf="submitted && loginForm.controls['username'].errors?.required" class="help-block with-errors">
+                    <div>Username is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="single-form form-group">
+                  <input type="password"
+                         formControlName="password"
+                         placeholder="Password"
+                         required>
+                  <div *ngIf="submitted && loginForm.controls['password'].errors?.required" class="help-block with-errors">
+                    <div>Password is required</div>
+                  </div>
+                  <div *ngIf="submitted && loginForm.controls['password'].errors?.minlength" class="help-block with-errors">
+                    <div>Password has be a minimum of 6 symbols</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="single-form router-auth">
+                  <p>You don't have an account?</p>
+                  <a [routerLink]="'/sign-up'">Sign Up</a>
+                </div>
+              </div>
+              <p class="form-message"></p>
+              <div class="col-lg-12">
+                <div class="single-form form-group">
+                  <button *ngIf="!submitProcess" class="main-btn" (click)="signIn()">Login</button>
+                  <button *ngIf="submitProcess" class="main-btn" disabled>
+                    Login
+                    <span class="c-preloader"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

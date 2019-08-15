@@ -1,0 +1,55 @@
+.star {
+  font-size: 1.5rem;
+  color: #b0c4de;
+}
+
+.filled {
+  color: #fc924b;
+}
+
+::ng-deep .rating-bar{
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.single-form{
+  margin-top: 10px;
+}
+
+.form-group{
+  margin-bottom: 5px;
+}
+
+.create-review-container{
+  margin-bottom: 20px;
+
+  &.is-logout{
+    padding: 40px 0;
+  }
+}
+
+.review-load{
+  opacity: 0.5;
+  display: block;
+  min-height: 180px;
+}
+
+.review-list-content{
+  position: relative;
+
+  .review-item{
+    border: 1px solid #f0f0f0;
+    margin-bottom: 15px;
+    padding: 10px;
+
+    .review-text{
+      margin-bottom: 0;
+    }
+
+    .about-author{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@mixin pseudo-preloader($width: 30px, $height: 30px, $bgc: #fff, $animation-duration: 1.0s, $animation-delay: 0s) {
+  content: '';
+  width: $width;
+  height: $height;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: $bgc;
+  opacity: 0;
+  transform: scale(0);
+  animation-name: preloading;
+  animation-duration: $animation-duration;
+  animation-delay: $animation-delay;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+$preloader-width: 40px;
+$preloader-height: 40px;
+
+
+.c-preloader {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fe7865;
+  cursor: not-allowed;
+
+  &::before {
+    position: absolute;
+    @include pseudo-preloader($preloader-width, $preloader-height);
+  }
+  &::after {
+    @include pseudo-preloader($preloader-width, $preloader-height, #ffffff, 1.0s, -.5s);
+  }
+}
+
+@keyframes preloading {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1)
+  }
+}

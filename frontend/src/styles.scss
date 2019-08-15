@@ -1,0 +1,27 @@
+@import '~ngx-toastr/toastr';
+@import 'assets/style/preloader';
+@import 'assets/style/products';
+@import 'assets/style/general';
+
+@font-face {
+  font-family: Poppins;
+  src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #777;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button{
+  box-shadow: none !important;
+  outline: none !important;
+}

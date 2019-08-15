@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-5">
+    <div class="single-product-items">
+      <div class="product-item-image">
+        <img [src]="imgUrl + 'static/' + product.img" alt="Product">
+      </div>
+      <div class="product-item-content text-center mt-30">
+        <h5 class="product-title">Name: {{ product.title }}</h5>
+        <p>Description: {{ product.text }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <app-reviews [modal]="modal" [productId]="product.id"></app-reviews>
+  </div>
+</div>

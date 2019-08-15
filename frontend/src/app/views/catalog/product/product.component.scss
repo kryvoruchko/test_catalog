@@ -1,0 +1,9 @@
+.single-product-items{
+  border: none;
+
+  .product-item-content{
+    & > h5, & > p{
+      text-align: left;
+    }
+  }
+}
