@@ -1,13 +1,10 @@
 # Frontend
 
-Запустить `npm install`.
-Запустить `ng serve` и перейти по ссылке: `http://localhost:4200/`.
+Run `npm install`.
+Run `ng serve` and natigate to link: `http://localhost:4200/`.
 
 
 # Api:
 
-API в данный момент нормально не протестирована, так как это мой первый более менее опыт работы с NodeJS, Express и MongoDB.
-Буду признателен за конструктивную критику и пожелания в доделывании и исправлении до полностью рабочего состояния.
-
-1. Запустить `npm install`
-2. Запустить `node server.js`
+1. Run `npm install`
+2. Run `node server.js`
